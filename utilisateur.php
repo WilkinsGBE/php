@@ -48,7 +48,7 @@ if (isset($_GET["modifier"])) {
     <nav>
         <a href="/utilisateur.php">Liste d'utilisateur</a>
         <a href="/ajouter.php">Ajouter</a>
-        <!-- <a href="/modifier.php">Modifier</a> -->
+        <a href="/modifier.php">Modifier</a>
         <a href="/supprimer.php">Supprimer</a>
     </nav>
     <div id="utilisateur">
@@ -64,7 +64,7 @@ if (isset($_GET["modifier"])) {
         </div>
 
         <?php foreach ($personnes as $personne): ?>
-            <form action="traitement.php" method="GET">
+            <form action="" method="GET">
 
                 <label for="" class="id"><?php echo $personne['id'] ?></label>
                 <input type="hidden" name="id" value="<?= $personne['id'] ?>">

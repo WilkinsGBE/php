@@ -30,20 +30,16 @@ $personne = $personnes[$index];
 $personneId = $personne['id'];
 $total = count($personnes);
 
-// isset($_POST["REQUEST_METHOD"] == "GET")
+if (isset($_POST["ajouter"])) {
+    $stmt = $pdo->prepare("INSERT INTO personne (id, nom, prenom, email) VALUES (?, ?, ?, ?)");
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Insertion dans la base de donnée
-    if (isset($_POST["ajouter"])) {
-        $stmt = $pdo->prepare("INSERT INTO personne (id, nom, prenom, email) VALUES (?, ?, ?, ?)");
-
-        $stmt->execute([
-            $_POST["id"],
-            $_POST['nom'],
-            $_POST['prenom'],
-            $_POST['email']
-        ]);
-    }
+    $stmt->execute([
+        $_POST["id"],
+        $_POST['nom'],
+        $_POST['prenom'],
+        $_POST['email']
+    ]);
+}
 
 // Récupération des données de la personne actuelle
 $index = isset($_SESSION['index']) ? (int)$_SESSION['index'] : 0;
@@ -68,31 +64,31 @@ $personne = $personnes[$index];
     </nav>
     <div id="utilisateur">
         <h1>Ajouter un utilisateur</h1>
-        <p>Nombre d'utilisateur : <?php echo count($personnes); ?></p>
 
         <div class="label">
+            <label for="" class="prenomlab">Id</label>
             <label for="" class="prenomlab">Prénom</label>
             <label for="" class="nomlab">Nom</label>
             <label for="" class="emaillab">Email</label>
-            <label for="" class="modifierlab">Modifier cette ligne</label>
-            <label for="" class="supprimerlab">Supprimer cette ligne</label>
         </div>
 
-            <form action="" method="POST">
+        <form action="" method="POST">
 
-                <input type="   " name="id" value="<?= $personne['id'] ?>">
-                <div class="prenom">
-                    <input type="text" name="prenom" value="<?= htmlspecialchars($personne['prenom']) ?>">
-                </div>
-                <div class="nom">
-                    <input type="text" name="nom" value="<?= htmlspecialchars($personne['nom']) ?>" readonly>
-                </div>
-                <div class="email">
-                    <input type="text" name="email" value="<?= htmlspecialchars($personne['email']) ?>" readonly>
-                </div>
-                <button type="submit" name="ajouter">Ajouter</button>
+            <div class="prenom">
+                <input type="number" name="id">
+            </div>
+            <div class="prenom">
+                <input type="text" name="prenom">
+            </div>
+            <div class="nom">
+                <input type="text" name="nom">
+            </div>
+            <div class="email">
+                <input type="text" name="email">
+            </div>
+            <button type="submit" name="ajouter">Ajouter</button>
 
-            </form>
+        </form>
     </div>
 </body>
 

@@ -31,7 +31,7 @@ $personneId = $personne['id'];
 $total = count($personnes);
 
 if (isset($_GET['id'])) {
-    $id = (int)$_GET['id']; // sanitize input
+    $id = (int)$_GET['id'];
     $stmt = $pdo->prepare("SELECT * FROM personne WHERE id = ?");
     $stmt->execute([$id]);
     $personne = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -45,8 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_POST['nom'],
             $_POST['prenom'],
             $_POST['email'],
-            $_POST['id'],
-            $personneId
+            (int)$_POST['id'],
         ]);
     }
 }
@@ -75,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="label">
             <label for="" class="prenomlab">Prénom</label>
             <label for="" class="nomlab">Nom</label>
-            <label for="" class="emaillab">Email</label>
+            <label fo-r="" class="emaillab">Email</label>
             <label for="" class="modifierlab">Modifier cette ligne</label>
             <label for="" class="supprimerlab">Supprimer cette ligne</label>
         </div>
@@ -92,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="email">
                 <input type="text" name="email" value="<?= htmlspecialchars($personne['email']) ?>" readonly>
             </div>
-            <button name="ajouter">Modifier</button>
+            <button type="submit" name="modifier">Modifier</button>
         </form>
     </div>
 </body>

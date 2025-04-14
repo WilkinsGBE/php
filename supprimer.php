@@ -33,7 +33,7 @@ $total = count($personnes);
 // suppresion
 if (isset($_POST['supprimer'])) {
     $stmt = $pdo->prepare("DELETE FROM personne WHERE id = ?");
-    $stmt->execute([$_SESSION['index']]);
+    $stmt->execute([$_POST['id']]);
 }
 ?>
 
@@ -54,19 +54,17 @@ if (isset($_POST['supprimer'])) {
     </nav>
     <div id="utilisateur">
         <h1>Supprimer un utilisateur</h1>
-        <p>Nombre d'utilisateur : <?php echo count($personnes); ?></p>
 
         <div class="label">
+            <label for="" class="prenomlab">Id</label>
             <label for="" class="prenomlab">Prénom</label>
             <label for="" class="nomlab">Nom</label>
             <label for="" class="emaillab">Email</label>
-            <label for="" class="modifierlab">Modifier cette ligne</label>
-            <label for="" class="supprimerlab">Supprimer cette ligne</label>
         </div>
 
-        <form action="traitement.php" method="POST">
+        <form method="POST">
 
-            <input type="" name="id" value="<?= $personne['id'] ?>">
+            <input type="" name="id" value="<?= $personne['id'] ?>" readonly>
             <div class="prenom">
                 <input type="text" name="prenom" value="<?= htmlspecialchars($personne['prenom']) ?>">
             </div>
@@ -76,7 +74,7 @@ if (isset($_POST['supprimer'])) {
             <div class="email">
                 <input type="text" name="email" value="<?= htmlspecialchars($personne['email']) ?>" readonly>
             </div>
-            <button name="ajouter">Supprimer</button>
+            <button name="supprimer">Supprimer</button>
         </form>
     </div>
 </body>
