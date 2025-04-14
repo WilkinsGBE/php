@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0B132B;
+    color: white;
+    justify-content: center;
+}
+
+nav {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+form .prenom, .nom, .email, .modifier, .supprimer {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+#utilisateur h1, p {
+    justify-self: center;
+    margin-top: 20px;
+}
+
+label.prenom, .nom label, .email label, .modifier label, .supprimer label {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    padding: 5px 10px;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    justify-content: center;
+}
+
+.prenomlab, .nomlab, .emaillab, .modifierlab, .modifierlab, .supprimerlab {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+
+.id {
+    color: red;
+    font-size: 30px;
+}
+
+.ajouter {
+    justify-self: center;
+}
+
+.ajouter a {
+    padding: 40px;
+}
